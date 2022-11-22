@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--    maven构建部那边呢，一直是4.0不需要根本-->
+    <modelVersion>4.0.0</modelVersion>
+    <!--    项目标示信息
+    groupId 项目唯一表示
+    artifactId项目得文件表示
+    version项目版本
+    package项目打包得模式，简介决定了项目得类型
+        jar 默认打值普通得 jar包
+        war包 表示web工程，放在服务器里面得资源
+        pom，不打包得含义，用于做父工程
+        举例 :微服务中
+            父工程使用pom工程
+            shop中-utils使用得是jar包
+            shop-product war包需要发布得版本
+            shop-order war包版本
+    <scop>依赖得存活和生效范围
+                    编译前     测试期     运行期
+    (默认)compile    main     test       打包   durid
+         provided   main     test       不可用  servlet-api    HttpServlet \\tomcat中需要、但是写代码得时候不需要
+         runtime    不可用     不可用     不可用  比如jdbc链接得时候
+         test       不用      用           不用
+    </scop>
+    总结：如果不是十分了解依赖作用得范围，不要随便添加scope
+    声明全局变量得范围
+    在dependiences外面加一个properties标签
+    -->
+    <groupId>com.qing</groupId>
+    <artifactId>SSM</artifactId>
+    <version>1.1.1</version>
+    <modules>
+        <module>day11_19</module>
+        <module>day11_21</module>
+        <module>day11_22</module>
+    </modules>
+    <packaging>pom</packaging>
+    <!--
+    但是不可以写<version>
+    ${spring.version}
+    -->
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.30</version>
+        </dependency>
+        <!-- mybatis框架本身的依赖-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connection}</version>
+        </dependency>
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>ch.qos.logback</groupId>-->
+<!--            <artifactId>logback-classic</artifactId>-->
+<!--            <version>1.4.4</version>-->
+<!--        </dependency>-->
+        <!-- 日志 自定引入slf4j接口-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <!-- log4j日志  -->
+<!--        <dependency>-->
+<!--            <groupId>log4j</groupId>-->
+<!--            <artifactId>log4j</artifactId>-->
+<!--            <version>1.2.17</version>-->
+<!--        </dependency>-->
+
+    </dependencies>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>5.3.8</spring.version>
+        <mybatis.version>3.5.7</mybatis.version>
+        <mysql.connection>8.0.25</mysql.connection>
+        <junit>4.12</junit>
+        <lombok.version>1.18.24</lombok.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- mybatis框架本身的依赖-->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connection}</version>
+            </dependency>
+            <!-- junit -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+</project>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- DTD约束 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--固定要跟类的权限修饰符进行查找-->
+<mapper namespace="com.llkj.dao.EmpMapper">
+
+    <select id="selectEmpList" resultType="com.llkj.pojo.Emp">
+        select emp_id empId, emp_name empName, emp_salary empSalary
+        from t_emp;
+    </select>
+    <insert id="insertEmp"  >
+        insert into t_emp(emp_name, emp_salary)
+        values (#{empName}, #{empSalary})
+        <selectKey order="AFTER" keyColumn="emp_id"  keyProperty="empId">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    <select id="selectOrderBy" resultType="com.llkj.pojo.Emp">
+        select emp_id empId, emp_name empName, emp_salary empSalary
+        from t_emp
+        order by emp_salary ${od}
+    </select>
+    <select id="selectOrderBySalary" resultType="com.llkj.pojo.Emp">
+        select emp_id empId, emp_name empName, emp_salary empSalary
+        from t_emp
+        where emp_salary > #{arg1}
+        order by emp_salary ${arg0}
+    </select>
+</mapper>

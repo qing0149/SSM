@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- DTD约束 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.llkj.mapper.CustomerMapper">
+
+    <resultMap id="customerMap" type="com.llkj.pojo.Customer">
+        <id column="customer_id" property="customerId"></id>
+        <result column="customer_name" property="customerName"></result>
+        <collection property="orders" ofType="com.llkj.pojo.Order">
+            <id column="order_id" property="orderId"></id>
+            <result column="order_name" property="orderName"></result>
+            <result column="customer_id" property="customerId"></result>
+        </collection>
+    </resultMap>
+
+    <select id="queryList" resultMap="customerMap">
+        select *
+        from t_customer tcs
+                 inner join t_order tor on tcs.customer_id = tor.customer_id
+    </select>
+</mapper>
