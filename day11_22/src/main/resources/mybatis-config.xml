@@ -10,23 +10,9 @@
         <property name="password" value="password"/>
     </properties>
     <settings>
-        <!--         设置控制台输出  打开stdout_logging表示控制台输出        -->
                 <setting name="logImpl" value="STDOUT_LOGGING"/>
-        <!--        表示需要配置logback.xml得配置文件-->
-<!--        <setting name="logImpl" value="SLF4J"/>-->
-
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-<!--        指定mybatis自动映射到字段或属性
-            NoNe表示关闭自动映射
-            PARTAL回自动映射到没有签到的字段 没有assoction或collection也会自动映射
-            FULL回自动迎着复杂结果
--->
         <setting name="autoMappingBehavior" value="FULL"/>
-<!--        lazyLoadingEnabled 开启延时加载   true 按需加载【开启之后才可以积极加载】 false默认加载全部查询步骤，不管需不需要
-            aggressiveLazyLoading  true 积极延迟加载 false不积极延迟加载【false真按时积极加载】
-
-
--->
         <setting name="lazyLoadingEnabled" value="true"/>
         <setting name="aggressiveLazyLoading" value="false"></setting>
     </settings>

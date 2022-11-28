@@ -1,0 +1,25 @@
+2022-11-28 01:37:47.158 [main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2022-11-28 01:37:47.161 [main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2022-11-28 01:37:47.222 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2022-11-28 01:37:47.222 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2022-11-28 01:37:47.222 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2022-11-28 01:37:47.223 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2022-11-28 01:37:47.310 [main] DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+2022-11-28 01:37:48.054 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 988179589.
+2022-11-28 01:37:48.056 [main] DEBUG com.llkj.dao.UserMapper.Login - ==>  Preparing: select * from t_user where tname = ? and tpassword = ?
+2022-11-28 01:37:48.079 [main] DEBUG com.llkj.dao.UserMapper.Login - ==> Parameters: qing(String), 123456(String)
+2022-11-28 01:37:48.095 [main] DEBUG com.llkj.dao.UserMapper.Login - <==      Total: 1
+2022-11-28 01:37:48.097 [main] INFO  MyBatisTest - User(id=e0982ed66e5611eda65f902e16dbeba7, name=qing, password=123456)
+2022-11-28 01:38:21.756 [main] INFO  MyBatisTest - User(id=e0982ed66e5611eda65f902e16dbeba7, name=qing, password=123456)
+2022-11-28 01:41:34.061 [main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2022-11-28 01:41:34.063 [main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2022-11-28 01:41:34.121 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2022-11-28 01:41:34.122 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2022-11-28 01:41:34.122 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2022-11-28 01:41:34.123 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2022-11-28 01:41:34.205 [main] DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+2022-11-28 01:41:34.973 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 1236444285.
+2022-11-28 01:41:34.976 [main] DEBUG com.llkj.dao.UserMapper.Login - ==>  Preparing: select * from t_user where tname = ? and tpassword = ?
+2022-11-28 01:41:35.000 [main] DEBUG com.llkj.dao.UserMapper.Login - ==> Parameters: qing(String), 123456(String)
+2022-11-28 01:41:35.014 [main] DEBUG com.llkj.dao.UserMapper.Login - <==      Total: 1
+2022-11-28 01:41:35.015 [main] INFO  MyBatisTest - User(id=e0982ed66e5611eda65f902e16dbeba7, name=qing, password=123456)

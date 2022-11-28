@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- DTD约束 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.llkj.dao.UserMapper">
+    <resultMap id="userMap" type="com.llkj.pojo.User">
+        <id column="tid" property="id"></id>
+        <result column="tname" property="name"></result>
+        <result column="tpassword" property="password"></result>
+    </resultMap>
+    <insert id="InsertAccount" parameterType="com.llkj.pojo.User" keyColumn="tid" keyProperty="id">
+        <selectKey order="BEFORE" resultType="String" keyProperty="id">
+            select REPLACE(UUID(),"-","")
+        </selectKey>
+        insert into t_user(tid,tname,tpassword) values(#{id},#{name},#{password})
+    </insert>
+    <delete id="DeleteAccountByName">
+
+    </delete>
+    <update id="UpdateAccountByName">
+
+    </update>
+    <select id="Login" parameterType="com.llkj.pojo.User" resultMap="userMap">
+        select *
+        from t_user
+        where tname = #{name}
+          and tpassword = #{password}
+    </select>
+    <select id="QueryAllAccount"></select>
+
+
+</mapper>
