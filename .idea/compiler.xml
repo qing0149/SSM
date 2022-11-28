@@ -7,10 +7,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="day11_25" />
+        <module name="day11_26" />
+        <module name="day11_23" />
+        <module name="day11_24" />
         <module name="day11_21" />
-        <module name="day11_19" />
         <module name="day11_22" />
+        <module name="day11_22_hw" />
+        <module name="day11_19" />
+        <module name="day11_27" />
+        <module name="day11_28" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="day11_22_txd" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

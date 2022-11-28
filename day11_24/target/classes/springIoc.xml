@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--能放入xml里面只能放入实现类-->
+<bean class="com.llkj.pojo.Student" id="student">
+<!--    需要set方法-->
+    <property name="id" value="1"></property>
+    <property name="name" value="张三"></property>
+</bean>
+</beans>

@@ -35,30 +35,70 @@
         <module>day11_19</module>
         <module>day11_21</module>
         <module>day11_22</module>
+        <module>day11_22_hw</module>
+        <module>day11_23</module>
+        <module>day11_24</module>
+        <module>day11_25</module>
+        <module>day11_26</module>
+        <module>day11_27</module>
+        <module>day11_28</module>
     </modules>
     <packaging>pom</packaging>
     <!--
     但是不可以写<version>
     ${spring.version}
     -->
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>5.3.8</spring.version>
+        <mybatis.version>3.5.7</mybatis.version>
+        <mysql.connection>8.0.25</mysql.connection>
+        <junit>4.12</junit>
+        <lombok.version>1.18.24</lombok.version>
+        <spring.version>5.3.1</spring.version>
+        <junit.version>4.12</junit.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.30</version>
         </dependency>
+        <dependency>
+            <groupId>org.mybatis.caches</groupId>
+            <artifactId>mybatis-ehcache</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
         <!-- mybatis框架本身的依赖-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>${mybatis.version}</version>
         </dependency>
+
+
+
         <!-- mysql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.connection}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
         <!-- junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -70,7 +110,20 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
-<!--        <dependency>-->
+        <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.25</version>
+        </dependency>
+
+        <!--        <dependency>-->
 <!--            <groupId>ch.qos.logback</groupId>-->
 <!--            <artifactId>logback-classic</artifactId>-->
 <!--            <version>1.4.4</version>-->
@@ -81,6 +134,21 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>6.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>6.0.0</version>
+        </dependency>
         <!-- log4j日志  -->
 <!--        <dependency>-->
 <!--            <groupId>log4j</groupId>-->
@@ -90,42 +158,5 @@
 
     </dependencies>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>5.3.8</spring.version>
-        <mybatis.version>3.5.7</mybatis.version>
-        <mysql.connection>8.0.25</mysql.connection>
-        <junit>4.12</junit>
-        <lombok.version>1.18.24</lombok.version>
-    </properties>
-    <dependencyManagement>
-        <dependencies>
-            <!-- mybatis框架本身的依赖-->
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-            <!-- mysql -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.connection}</version>
-            </dependency>
-            <!-- junit -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
 
-        </dependencies>
-    </dependencyManagement>
 </project>

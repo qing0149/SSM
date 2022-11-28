@@ -22,6 +22,13 @@
             FULL回自动迎着复杂结果
 -->
         <setting name="autoMappingBehavior" value="FULL"/>
+<!--        lazyLoadingEnabled 开启延时加载   true 按需加载【开启之后才可以积极加载】 false默认加载全部查询步骤，不管需不需要
+            aggressiveLazyLoading  true 积极延迟加载 false不积极延迟加载【false真按时积极加载】
+
+
+-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"></setting>
     </settings>
     <!-- environments表示配置Mybatis的开发环境，可以配置多个环境，在众多具体环境中，使用default属性指定实际运行时使用的环境。default属性的取值是environment标签的id属性的值。 -->
     <!-- mybatis要作用的数据库 -->

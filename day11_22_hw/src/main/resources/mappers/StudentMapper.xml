@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- DTD约束 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.llkj.mapper.StudentMapper">
+    <resultMap id="studentMap" type="com.llkj.pojo.Student">
+        <!--        <result column="s_id" property="sId"></result>-->
+        <id column="s_id" property="sId"></id>
+        <result column="s_name" property="sName"></result>
+        <collection property="teachers" ofType="com.llkj.pojo.Teacher">
+            <id column="t_id" property="tId"></id>
+            <result column="t_name" property="tName"></result>
+        </collection>
+    </resultMap>
+    <select id="queryStudentById" resultMap="studentMap">
+        select stu.s_id s_id, s_name, tea.t_id t_id, t_name
+        from student stu
+                 inner join t_s ts on stu.s_id = ts.s_id
+                 inner join teacher tea on ts.t_id = tea.t_id
+        where stu.s_id = #{sid}
+    </select>
+
+    <resultMap id="studentDivMap" type="com.llkj.pojo.Student">
+        <id column="s_id" property="sId"></id>
+        <result column="s_name" property="sName"></result>
+<!--        <collection property="tIds" ofType="integer" column="t_id">-->
+<!--            <id column="t_id"></id>-->
+<!--        </collection>-->
+        <collection property="teachers" column="t_id"
+                    select="com.llkj.mapper.TeacherMapper.queryTeacherById">
+        </collection>
+    </resultMap>
+
+    <select id="queryStudentByIdDiv" resultMap="studentDivMap">
+        select stu.s_id s_id, s_name, ts.t_id t_id
+        from student stu
+                  join t_s ts on stu.s_id = ts.s_id
+        where stu.s_id = #{sid}
+    </select>
+
+    <resultMap id="studentMap2" type="com.llkj.pojo.Student">
+        <id column="s_id" property="sId"></id>
+        <result column="s_name" property="sName"></result>
+        <collection property="teachers" column="t_id"
+                    select="com.llkj.mapper.TeacherMapper.queryTeacherByStuId"></collection>
+    </resultMap>
+    <select id="queryStudentById2" resultMap="studentMap2">
+        select *
+        from student
+        where s_id = #{id}
+    </select>
+
+    <resultMap id="distributedQuery" type="com.llkj.pojo.Student">
+        <id column="s_id" property="sId"/>
+<!--        <collection property="teachers" select="com.llkj.mapper.TeacherMapper.queryTeacherById" column="t_id"/>-->
+    </resultMap>
+    <select id="distributedQuery" resultMap="distributedQuery">
+        SELECT s.*,ts.t_id
+        FROM student s JOIN t_s ts on s.s_id = ts.s_id
+        WHERE s.s_id = #{sid}
+    </select>
+    <resultMap id="studentMap01" type="com.llkj.pojo.Student">
+        <id column="s_id" property="sId"></id>
+
+        <collection property="teachers"
+                    column="t_Id"
+                    select="com.llkj.mapper.TeacherMapper.queryRelations" >
+        </collection>
+    </resultMap>
+    <select id="queryStudentSub" resultMap="studentMap01">
+        SELECT * FROM student
+                          left JOIN t_s
+                                    ON student.s_id=t_s.s_id
+        WHERE student.s_name=#{sName}
+    </select>
+</mapper>

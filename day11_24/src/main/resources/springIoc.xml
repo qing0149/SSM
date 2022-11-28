@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+<!--    命名空间-->
+
+    <context:property-placeholder location="classpath:druid.properties"/>
+    <!--能放入xml里面只能放入实现类-->
+    <bean class="com.llkj.pojo.Student" id="student">
+        <!--    需要set方法
+        外部bean引用
+        -->
+        <property name="id" value="1"></property>
+        <property name="name" value="张三"></property>
+    </bean>
+<!--    <bean>-->
+<!--        外部引用-->
+<!--        <property name="">-->
+<!--            <bean>-->
+<!--                <property name=""></property>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--        -->
+<!--        -->
+<!--        <property name="" ref=""></property>-->
+<!--    </bean>-->
+
+</beans>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="application.properties">
+        <property name="driver" value="driver"/>
+        <property name="url" value="url"/>
+        <property name="username" value="username"/>
+        <property name="password" value="password"/>
+    </properties>
+    <settings>
+        <setting name="logImpl" value="SLF4J"/>
+        <!--自动驼峰命名-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--自动映射-->
+        <setting name="autoMappingBehavior" value="FULL"/>
+        <!--懒加载机制-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"></setting>
+    </settings>
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+<!--                <property name="driver" value="${driver}"/>-->
+<!--                <property name="url" value="${url}"/>-->
+<!--                <property name="username" value="${username}"/>-->
+<!--                <property name="password" value="${password}"/>-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:13306/mybatis"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+        <environment id="test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value=""/>
+                <property name="url" value=""/>
+                <property name="username" value=""/>
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mappers/UserMapper.xml"/>
+    </mappers>
+</configuration>

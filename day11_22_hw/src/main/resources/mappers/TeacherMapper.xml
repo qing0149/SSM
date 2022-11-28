@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- DTD约束 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.llkj.mapper.TeacherMapper">
+
+    <select id="queryTeacherById" resultType="com.llkj.pojo.Teacher">
+        select *
+        from teacher
+        where t_id = #{tid}
+    </select>
+
+    <select id="queryTeacherByStuId" resultType="com.llkj.pojo.Teacher">
+        select t.t_id tId,t.t_Name tName
+        from teacher t
+                 inner join t_s s on t.t_id = s.t_id
+        where s.s_id = #{id}
+    </select>
+    <select id="queryRelations" resultType="com.llkj.pojo.Teacher">
+        select * from teacher
+        where t_id=#{tId}
+    </select>
+
+</mapper>
